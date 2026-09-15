@@ -1,54 +1,1067 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Wavelength — Signal on technology, tutorials, reviews & business</title>
-<meta name="description" content="Wavelength is a multi-topic blog covering technology, tutorials, reviews, and business — organized by channel." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fantasy Drugs Pvt. Ltd. — Pharmaceutical Manufacturing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2545;
+    --navy-2:#123566;
+    --ink:#101826;
+    --ink-soft:#4B5768;
+    --teal:#0E7C86;
+    --green:#1E8F5F;
+    --paper:#FFFFFF;
+    --mist:#F4F7F9;
+    --line:#E3E9EE;
+    --radius:2px;
+    --wrap:1240px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Manrope',sans-serif;
+    color:var(--navy);
+    margin:0;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;}
+  section{position:relative;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+
+  /* ---------- Utility bar ---------- */
+  .utility-bar{
+    background:var(--navy);
+    color:rgba(255,255,255,.75);
+    font-size:13px;
+  }
+  .utility-bar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:8px;padding-bottom:8px;
+  }
+  .utility-bar a{color:rgba(255,255,255,.92);}
+  .utility-bar .u-left{display:flex;gap:20px;flex-wrap:wrap;}
+  .utility-bar .u-right{display:flex;gap:16px;}
+
+  /* ---------- Header ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:100;
+    transition:box-shadow .25s ease;
+  }
+  header.site-header.is-stuck{box-shadow:0 6px 24px rgba(11,37,69,.08);}
+  .header-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 0;
+  }
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo-mark{
+    width:42px;height:42px;border-radius:6px;
+    background:linear-gradient(155deg,var(--navy),var(--navy-2));
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;letter-spacing:.02em;
+    flex:none;
+  }
+  .logo-text{display:flex;flex-direction:column;line-height:1.1;}
+  .logo-text strong{font-family:'Manrope',sans-serif;font-weight:800;font-size:17px;color:var(--navy);}
+  .logo-text span{font-size:11px;color:var(--ink-soft);letter-spacing:.02em;}
+
+  nav.main-nav{display:flex;align-items:center;gap:2px;}
+  nav.main-nav > ul{display:flex;align-items:center;}
+  nav.main-nav > ul > li{position:relative;}
+  nav.main-nav > ul > li > a{
+    display:block;padding:12px 15px;font-size:14.5px;font-weight:500;color:var(--ink);
+    border-radius:var(--radius);
+  }
+  nav.main-nav > ul > li:hover > a{color:var(--navy);background:var(--mist);}
+
+  .mega{
+    position:absolute;top:100%;left:0;
+    background:var(--paper);border:1px solid var(--line);
+    box-shadow:0 18px 40px rgba(11,37,69,.12);
+    padding:22px;display:none;min-width:260px;z-index:50;
+  }
+  .mega.wide{min-width:560px;display:none;grid-template-columns:1fr 1fr;gap:0 32px;}
+  nav.main-nav > ul > li:hover .mega{display:block;}
+  nav.main-nav > ul > li:hover .mega.wide{display:grid;}
+  .mega h5{font-size:12px;color:var(--ink-soft);font-weight:600;margin:0 0 10px;}
+  .mega a.item{display:flex;justify-content:space-between;align-items:center;padding:9px 4px;font-size:14px;color:var(--ink);border-bottom:1px solid var(--line);}
+  .mega a.item:last-child{border-bottom:none;}
+  .mega a.item:hover{color:var(--teal);}
+  .mega .view-all{margin-top:14px;display:inline-block;font-size:13.5px;font-weight:600;color:var(--teal);}
+
+  .header-actions{display:flex;align-items:center;gap:10px;}
+  .icon-btn{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;background:#fff;color:var(--navy);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;font-size:14.5px;font-weight:600;border-radius:2px;border:1px solid transparent;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--navy);color:#fff;}
+  .btn-primary:hover{background:var(--navy-2);}
+  .btn-outline{border-color:var(--navy);color:var(--navy);background:transparent;}
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-ghost{color:var(--navy);font-weight:600;font-size:14.5px;}
+
+  .hamburger{display:none;width:38px;height:38px;border:1px solid var(--line);border-radius:4px;background:#fff;align-items:center;justify-content:center;}
+
+  /* ---------- Hero ---------- */
+  .hero{background:var(--mist);overflow:hidden;}
+  .hero .wrap{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+    padding-top:76px;padding-bottom:64px;
+  }
+  .hero-eyebrow{font-size:13.5px;color:var(--teal);font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green);}
+  .hero h1{font-size:44px;font-weight:800;margin-bottom:20px;max-width:15ch;}
+  .hero p.lead{font-size:17px;color:var(--ink-soft);max-width:46ch;margin-bottom:30px;}
+  .hero-ctas{display:flex;gap:14px;margin-bottom:40px;flex-wrap:wrap;}
+  .trust-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;border-top:1px solid var(--line);padding-top:24px;max-width:520px;}
+  .trust-strip li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink);font-weight:500;}
+  .trust-strip svg{flex:none;margin-top:2px;color:var(--green);}
+
+  .hero-art{position:relative;}
+  .hero-art svg{width:100%;height:auto;}
+
+  /* ---------- Snapshot ---------- */
+  .snapshot{background:var(--navy);color:#fff;}
+  .snapshot .wrap{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    padding:36px 32px;
+  }
+  .snapshot .item{padding:0 24px;border-left:1px solid rgba(255,255,255,.16);}
+  .snapshot .item:first-child{border-left:none;padding-left:0;}
+  .snapshot .num{font-family:'Manrope',sans-serif;font-weight:800;font-size:28px;}
+  .snapshot .label{font-size:13px;color:rgba(255,255,255,.68);margin-top:4px;}
+
+  /* ---------- Section shell ---------- */
+  .section{padding:96px 0;}
+  .section.tight{padding:72px 0;}
+  .section.mist{background:var(--mist);}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head .kicker{font-size:13.5px;font-weight:600;color:var(--teal);margin-bottom:12px;}
+  .section-head h2{font-size:32px;font-weight:800;margin-bottom:14px;}
+  .section-head p{color:var(--ink-soft);font-size:16px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center;}
+  .about-art{background:linear-gradient(155deg,var(--navy),var(--navy-2));border-radius:4px;padding:36px;color:#fff;position:relative;overflow:hidden;}
+  .about-art svg{position:relative;z-index:2;}
+  .about-copy p{color:var(--ink-soft);margin:0 0 18px;font-size:15.5px;}
+  .values{display:flex;gap:28px;margin:26px 0 30px;flex-wrap:wrap;}
+  .values .val{font-size:14px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:8px;}
+  .values .val::before{content:'';width:8px;height:8px;background:var(--green);border-radius:50%;}
+  .verified-row{display:flex;gap:32px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px;margin-top:8px;}
+  .verified-row .v-item strong{display:block;font-family:'Manrope',sans-serif;color:var(--navy);font-size:16px;}
+  .verified-row .v-item span{font-size:13px;color:var(--ink-soft);}
+
+  /* ---------- Feature grid ---------- */
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .feature-card{background:#fff;padding:34px 30px;}
+  .feature-card .f-icon{width:40px;height:40px;color:var(--teal);margin-bottom:18px;}
+  .feature-card h3{font-size:17px;margin-bottom:10px;}
+  .feature-card p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+
+  /* ---------- Products ---------- */
+  .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .product-card{
+    border:1px solid var(--line);background:#fff;padding:26px 22px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .product-card:hover{border-color:var(--navy);transform:translateY(-3px);}
+  .product-card .p-icon{width:36px;height:36px;color:var(--navy);margin-bottom:20px;}
+  .product-card h3{font-size:16px;margin-bottom:8px;}
+  .product-card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px;min-height:38px;}
+  .product-card a{font-size:13.5px;font-weight:600;color:var(--teal);}
+
+  /* ---------- Manufacturing dashboard ---------- */
+  .cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .cap-card{background:#fff;padding:28px 24px;}
+  .cap-card .cap-label{font-size:12.5px;color:var(--ink-soft);font-weight:600;margin-bottom:10px;}
+  .cap-card .cap-num{font-family:'Manrope',sans-serif;font-weight:800;font-size:23px;color:var(--navy);}
+  .cap-card .cap-unit{font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .cap-note{font-size:13px;color:var(--ink-soft);margin-top:20px;}
+
+  /* ---------- Quality / certification ---------- */
+  .quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .quality-list li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .quality-list li:first-child{padding-top:0;}
+  .quality-list .q-dot{width:9px;height:9px;border-radius:50%;background:var(--green);margin-top:7px;flex:none;}
+  .quality-list h4{font-size:15.5px;margin-bottom:4px;}
+  .quality-list p{font-size:14px;color:var(--ink-soft);margin:0;}
+
+  .cert-card{
+    border:1px solid var(--line);background:#fff;padding:26px;display:flex;
+    align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px;
+  }
+  .cert-card .cert-meta{display:flex;gap:16px;align-items:center;}
+  .cert-card .cert-icon{width:44px;height:44px;border-radius:4px;background:var(--mist);color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none;}
+  .cert-card h4{font-size:15.5px;margin-bottom:3px;}
+  .cert-card span{font-size:12.5px;color:var(--ink-soft);}
+  .cert-card .cert-links{display:flex;gap:10px;flex:none;}
+  .cert-card .cert-links a{font-size:13px;font-weight:600;color:var(--teal);white-space:nowrap;}
+  .cert-disclaimer{font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:16px;margin-top:6px;}
+
+  /* ---------- Contract manufacturing ---------- */
+  .process-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:8px;}
+  .process-step{position:relative;padding-top:38px;}
+  .process-step .step-no{
+    font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;
+    width:30px;height:30px;border-radius:50%;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;position:absolute;top:0;left:0;
+  }
+  .process-step h4{font-size:14.5px;margin:8px 0 6px;}
+  .process-step p{font-size:13px;color:var(--ink-soft);margin:0;}
+
+  /* ---------- Global presence ---------- */
+  .global-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;}
+  .global-map{border:1px solid var(--line);background:var(--mist);padding:30px;}
+  .global-facts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px;}
+  .global-facts .g-item{background:#fff;border:1px solid var(--line);padding:16px 18px;}
+  .global-facts .g-item strong{display:block;font-family:'Manrope',sans-serif;color:var(--navy);font-size:15px;margin-bottom:4px;}
+  .global-facts .g-item span{font-size:13px;color:var(--ink-soft);}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{background:var(--navy);color:#fff;}
+  .cta-band .wrap{display:flex;justify-content:space-between;align-items:center;padding:56px 32px;gap:24px;flex-wrap:wrap;}
+  .cta-band h2{color:#fff;font-size:28px;max-width:22ch;}
+  .cta-band p{color:rgba(255,255,255,.72);margin-top:8px;max-width:44ch;font-size:15px;}
+  .cta-band .btn-primary{background:#fff;color:var(--navy);}
+  .cta-band .btn-primary:hover{background:var(--mist);}
+
+  /* ---------- Contact / locations ---------- */
+  .location-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .location-card{border:1px solid var(--line);background:#fff;padding:26px;}
+  .location-card .loc-tag{font-size:12px;font-weight:600;color:var(--teal);margin-bottom:10px;}
+  .location-card h3{font-size:16px;margin-bottom:10px;}
+  .location-card address{font-style:normal;font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;}
+  .location-card .loc-contacts{font-size:13px;color:var(--ink);}
+  .location-card .loc-contacts a{color:var(--navy);font-weight:600;}
+
+  /* ---------- Footer ---------- */
+  footer{background:#0A1F3C;color:rgba(255,255,255,.72);padding:64px 0 0;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.1fr;gap:32px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.12);}
+  .footer-grid h5{color:#fff;font-size:13.5px;font-weight:600;margin-bottom:18px;}
+  .footer-grid ul li{margin-bottom:11px;font-size:13.5px;}
+  .footer-grid ul li a:hover{color:#fff;}
+  .footer-about p{font-size:13.5px;color:rgba(255,255,255,.62);margin:14px 0 0;max-width:34ch;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:12.5px;color:rgba(255,255,255,.5);flex-wrap:wrap;gap:10px;}
+  .footer-bottom a{color:rgba(255,255,255,.7);}
+  .footer-bottom .legal{display:flex;gap:18px;flex-wrap:wrap;}
+
+  /* ---------- Floating actions ---------- */
+  .floating{position:fixed;right:24px;bottom:24px;display:flex;flex-direction:column;gap:12px;z-index:80;}
+  .fab{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(11,37,69,.25);color:#fff;}
+  .fab.whatsapp{background:#25D366;}
+  .fab.call{background:var(--navy);}
+
+  /* ---------- Modal ---------- */
+  .modal-overlay{position:fixed;inset:0;background:rgba(10,20,40,.55);display:none;align-items:center;justify-content:center;z-index:200;padding:24px;}
+  .modal-overlay.open{display:flex;}
+  .modal{background:#fff;max-width:520px;width:100%;padding:36px;border-radius:4px;max-height:88vh;overflow:auto;}
+  .modal-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
+  .modal h3{font-size:21px;}
+  .modal p.sub{color:var(--ink-soft);font-size:14px;margin:6px 0 22px;}
+  .modal-close{background:none;border:none;font-size:20px;color:var(--ink-soft);line-height:1;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .form-field{display:flex;flex-direction:column;gap:6px;}
+  .form-field.full{grid-column:1/-1;}
+  .form-field label{font-size:12.5px;font-weight:600;color:var(--ink);}
+  .form-field input,.form-field select,.form-field textarea{
+    border:1px solid var(--line);padding:10px 12px;font-size:14px;font-family:inherit;border-radius:2px;
+  }
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid var(--teal);outline-offset:1px;}
+  .modal .btn-primary{width:100%;justify-content:center;margin-top:6px;}
+  .form-success{display:none;text-align:center;padding:20px 0;}
+  .form-success .check{width:52px;height:52px;border-radius:50%;background:#E7F5EC;color:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1080px){
+    nav.main-nav{display:none;}
+    .hamburger{display:flex;}
+    .hero .wrap{grid-template-columns:1fr;padding-top:48px;}
+    .hero-art{order:-1;max-width:340px;margin:0 auto;}
+    .snapshot .wrap{grid-template-columns:repeat(2,1fr);gap:24px 0;}
+    .snapshot .item:nth-child(3){border-left:none;padding-left:0;}
+    .about-grid,.quality-grid,.global-grid{grid-template-columns:1fr;gap:36px;}
+    .feature-grid,.cap-grid{grid-template-columns:repeat(2,1fr);}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .process-rail{grid-template-columns:repeat(2,1fr);row-gap:30px;}
+    .location-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;row-gap:36px;}
+    .footer-about{grid-column:1/-1;}
+    .utility-bar .u-left{display:none;}
+  }
+  @media (max-width:620px){
+    .wrap{padding:0 20px;}
+    .hero h1{font-size:32px;}
+    .snapshot .wrap{grid-template-columns:1fr 1fr;padding:28px 20px;}
+    .feature-grid,.cap-grid,.product-grid{grid-template-columns:1fr 1fr;}
+    .section{padding:64px 0;}
+    .cta-band .wrap{flex-direction:column;align-items:flex-start;}
+    .form-row{grid-template-columns:1fr;}
+    .floating{right:16px;bottom:76px;}
+  }
+  .mobile-bottom-bar{display:none;}
+  @media (max-width:620px){
+    .mobile-bottom-bar{
+      display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;
+      border-top:1px solid var(--line);z-index:90;box-shadow:0 -6px 20px rgba(11,37,69,.08);
+    }
+    .mobile-bottom-bar a,.mobile-bottom-bar button{
+      flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
+      padding:10px 0 8px;font-size:11px;font-weight:600;color:var(--navy);background:none;border:none;
+    }
+    .mobile-bottom-bar .primary{background:var(--navy);color:#fff;}
+  }
+</style>
 </head>
 <body>
 
-<header class="site-header">
+<div class="utility-bar">
   <div class="wrap">
-    <a class="brand" href="index.html">
-      <span class="dial-mark" aria-hidden="true"></span>
-      Wavelength
-      <small>FM BLOG</small>
+    <div class="u-left">
+      <a href="tel:+917045707673">+91 70457 07673</a>
+      <span>info@fantasydrugs.in</span>
+      <span>Hajipur, Bihar · Patna, Bihar · Mumbai, Maharashtra</span>
+    </div>
+    <div class="u-right">
+      <a href="#" id="openQuoteTop">Business Development</a>
+      <a href="#careers">Careers</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-row">
+    <a href="#" class="logo">
+      <span class="logo-mark">FD</span>
+      <span class="logo-text">
+        <strong>Fantasy Drugs</strong>
+        <span>Pharmaceutical Manufacturing</span>
+      </span>
     </a>
-    <nav class="main-nav" id="main-nav" aria-label="Primary"></nav>
-    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li>
+          <a href="#manufacturing">Manufacturing</a>
+          <div class="mega">
+            <h5>Manufacturing</h5>
+            <a class="item" href="#manufacturing">Manufacturing Capability</a>
+            <a class="item" href="#manufacturing">Production Capacity</a>
+            <a class="item" href="#about">Infrastructure</a>
+            <a class="item" href="#contract">Contract Manufacturing</a>
+            <a class="item" href="#contract">Third‑Party Manufacturing</a>
+          </div>
+        </li>
+        <li>
+          <a href="#products">Products</a>
+          <div class="mega wide">
+            <div>
+              <h5>Dosage Forms</h5>
+              <a class="item" href="#products">Tablets &amp; Capsules</a>
+              <a class="item" href="#products">Syrups &amp; Oral Liquids</a>
+              <a class="item" href="#products">Injections</a>
+              <a class="item" href="#products">Eye &amp; Ear Drops</a>
+            </div>
+            <div>
+              <h5>&nbsp;</h5>
+              <a class="item" href="#products">Powders</a>
+              <a class="item" href="#products">Food Supplements</a>
+              <a class="item" href="#products">Ointments</a>
+              <a class="view-all" href="#products">Browse all products</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#quality">Quality &amp; Compliance</a>
+          <div class="mega">
+            <h5>Quality &amp; Compliance</h5>
+            <a class="item" href="#quality">Quality Management</a>
+            <a class="item" href="#quality">Certifications</a>
+            <a class="item" href="#quality">Manufacturing Standards</a>
+          </div>
+        </li>
+        <li><a href="#global">Global Presence</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="icon-btn" href="https://wa.me/917045707673" aria-label="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+      <a class="icon-btn" href="tel:+917045707673" aria-label="Call">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <button class="btn btn-primary" id="openQuoteHeader">Request a Quote</button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
-<main>
-  <section class="hero wrap">
-    <p class="hero-eyebrow">On air now</p>
-    <h1>Tune in to what's <em>actually</em> worth reading.</h1>
-    <p class="lede">Wavelength covers technology, tutorials, reviews, and business — four channels, one dial. Pick a frequency below or scroll through everything.</p>
-
-    <div class="dial" role="navigation" aria-label="Categories">
-      <div class="dial-track" id="dial-track"></div>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="dot"></span>Pharmaceutical Manufacturing · Hajipur, Bihar</div>
+      <h1>Pharmaceutical manufacturing built around quality</h1>
+      <p class="lead">Fantasy Drugs Pvt. Ltd. manufactures generic and branded pharmaceutical products across multiple dosage forms, and provides contract and third‑party manufacturing for partners in India and abroad.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn btn-primary">Explore Our Products</a>
+        <button class="btn btn-outline" id="openQuoteHero">Request a Manufacturing Quote</button>
+      </div>
+      <ul class="trust-strip">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> GMP‑certified manufacturing unit</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 1,500+ product portfolio</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Contract &amp; third‑party manufacturing</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Serving partners in India and abroad</li>
+      </ul>
     </div>
-  </section>
 
-  <div class="wrap">
-    <div id="featured-slot"></div>
-    <div id="channels"></div>
+    <div class="hero-art">
+      <svg viewBox="0 0 420 460" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="420" height="460" rx="4" fill="#0B2545"/>
+        <g opacity="0.14">
+          <line x1="0" y1="60" x2="420" y2="60" stroke="#fff"/>
+          <line x1="0" y1="120" x2="420" y2="120" stroke="#fff"/>
+          <line x1="0" y1="180" x2="420" y2="180" stroke="#fff"/>
+          <line x1="0" y1="240" x2="420" y2="240" stroke="#fff"/>
+          <line x1="0" y1="300" x2="420" y2="300" stroke="#fff"/>
+          <line x1="0" y1="360" x2="420" y2="360" stroke="#fff"/>
+          <line x1="0" y1="400" x2="420" y2="400" stroke="#fff"/>
+        </g>
+        <!-- vials row -->
+        <g fill="none" stroke="#7FD7DE" stroke-width="1.6">
+          <rect x="46" y="90" width="26" height="52" rx="4"/>
+          <rect x="53" y="78" width="12" height="14" rx="2"/>
+          <rect x="106" y="70" width="26" height="72" rx="4"/>
+          <rect x="113" y="58" width="12" height="14" rx="2"/>
+          <rect x="166" y="100" width="26" height="42" rx="4"/>
+          <rect x="173" y="88" width="12" height="14" rx="2"/>
+        </g>
+        <!-- tablet blister grid -->
+        <g fill="none" stroke="#9FB6D9" stroke-width="1.4">
+          <rect x="240" y="70" width="120" height="80" rx="6"/>
+          <circle cx="264" cy="94" r="9"/>
+          <circle cx="300" cy="94" r="9"/>
+          <circle cx="336" cy="94" r="9"/>
+          <circle cx="264" cy="126" r="9"/>
+          <circle cx="300" cy="126" r="9"/>
+          <circle cx="336" cy="126" r="9"/>
+        </g>
+        <!-- capsule -->
+        <g transform="translate(60,210)">
+          <rect x="0" y="0" width="90" height="30" rx="15" fill="#134A78"/>
+          <rect x="45" y="0" width="45" height="30" rx="15" fill="#7FD7DE"/>
+        </g>
+        <!-- production line abstraction -->
+        <g transform="translate(60,270)" stroke="#3F6C9C" stroke-width="1.6" fill="none">
+          <line x1="0" y1="30" x2="300" y2="30"/>
+          <rect x="20" y="10" width="34" height="40" rx="3" fill="#0F3560" stroke="none"/>
+          <rect x="80" y="10" width="34" height="40" rx="3" fill="#0F3560" stroke="none"/>
+          <rect x="140" y="10" width="34" height="40" rx="3" fill="#0F3560" stroke="none"/>
+          <rect x="200" y="10" width="34" height="40" rx="3" fill="#0F3560" stroke="none"/>
+          <rect x="260" y="10" width="34" height="40" rx="3" fill="#0F3560" stroke="none"/>
+          <circle cx="37" cy="30" r="4" fill="#7FD7DE" stroke="none"/>
+          <circle cx="97" cy="30" r="4" fill="#7FD7DE" stroke="none"/>
+          <circle cx="157" cy="30" r="4" fill="#7FD7DE" stroke="none"/>
+          <circle cx="217" cy="30" r="4" fill="#7FD7DE" stroke="none"/>
+          <circle cx="277" cy="30" r="4" fill="#7FD7DE" stroke="none"/>
+        </g>
+        <text x="60" y="410" fill="#B9CBE3" font-family="Inter, sans-serif" font-size="12" letter-spacing="0.5">HAJIPUR MANUFACTURING UNIT</text>
+        <text x="60" y="430" fill="#6E88AE" font-family="Inter, sans-serif" font-size="11">1.5‑acre facility · Industrial Area, Bihar</text>
+      </svg>
+    </div>
   </div>
-</main>
+</section>
 
-<footer class="site-footer">
+<!-- ================= SNAPSHOT ================= -->
+<section class="snapshot">
   <div class="wrap">
-    <p>&copy; <span id="footer-year"></span> Wavelength. Built with plain HTML, CSS &amp; JS — hosted on GitHub Pages.</p>
-    <nav class="footer-cats" id="footer-cats" aria-label="Categories"></nav>
+    <div class="item">
+      <div class="num">Since 2013</div>
+      <div class="label">Pharmaceutical industry experience</div>
+    </div>
+    <div class="item">
+      <div class="num">1,500+</div>
+      <div class="label">Product portfolio across therapeutic segments</div>
+    </div>
+    <div class="item">
+      <div class="num">7</div>
+      <div class="label">Dosage forms manufactured in‑house</div>
+    </div>
+    <div class="item">
+      <div class="num">India · Abroad</div>
+      <div class="label">Customers across domestic and export markets</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="about-art">
+      <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="30" width="280" height="200" rx="3" fill="none" stroke="#7FD7DE" stroke-width="1.4"/>
+        <rect x="40" y="50" width="60" height="45" fill="#134A78"/>
+        <rect x="112" y="50" width="60" height="45" fill="#0F3560"/>
+        <rect x="184" y="50" width="60" height="45" fill="#134A78"/>
+        <rect x="40" y="107" width="204" height="30" fill="none" stroke="#3F6C9C" stroke-width="1.2"/>
+        <rect x="40" y="150" width="204" height="60" fill="none" stroke="#3F6C9C" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <text x="40" y="270" fill="#fff" font-family="Manrope, sans-serif" font-weight="800" font-size="30">2013</text>
+        <text x="40" y="294" fill="#B9CBE3" font-family="Inter, sans-serif" font-size="13">Company established</text>
+        <text x="40" y="330" fill="#fff" font-family="Manrope, sans-serif" font-weight="800" font-size="30">1.5 acres</text>
+        <text x="40" y="354" fill="#B9CBE3" font-family="Inter, sans-serif" font-size="13">Manufacturing plant, Hajipur (Bihar)</text>
+      </svg>
+    </div>
+    <div class="about-copy">
+      <div class="section-head" style="margin-bottom:20px;">
+        <div class="kicker">About Fantasy Drugs</div>
+        <h2>Advancing healthcare through reliable pharmaceutical manufacturing</h2>
+      </div>
+      <p>Fantasy Drugs Pvt. Ltd. was established in 2013 and has since built a manufacturing plant spread over 1.5 acres in the Industrial Area of Hajipur, Bihar. The company is engaged in generic and branded pharmaceutical manufacturing, exporting and trading, serving wholesalers, retailers, distributors, hospitals, nursing homes, medical practitioners, research institutes and government organisations in India and abroad.</p>
+      <p>Manufacturing is carried out in a company‑owned, GMP‑certified unit. The product portfolio spans over 1,500 products across major healthcare areas, and the company also undertakes contract and third‑party pharmaceutical manufacturing for partner companies.</p>
+      <div class="values">
+        <div class="val">Integrity</div>
+        <div class="val">Excellence</div>
+        <div class="val">Innovation</div>
+      </div>
+      <div class="verified-row">
+        <div class="v-item"><strong>Hajipur, Bihar</strong><span>Manufacturing facility</span></div>
+        <div class="v-item"><strong>Generic &amp; Branded</strong><span>Manufacturing categories</span></div>
+        <div class="v-item"><strong>Contract &amp; Third‑Party</strong><span>Manufacturing services offered</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY PARTNERS CHOOSE US ================= -->
+<section class="section mist">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Why Partners Choose Us</div>
+      <h2>Built for long‑term pharmaceutical partnerships</h2>
+      <p>Every product leaving the Hajipur facility is manufactured to consistent standards of quality, reliability and safety.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><polyline points="9 12 11.5 14.5 16 9.5"/></svg>
+        <h3>Quality driven</h3>
+        <p>All products are manufactured to appropriate, consistent standards of quality, reliability and safety for their intended purpose.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <h3>Broad product portfolio</h3>
+        <p>A generic and branded portfolio of over 1,500 products spanning gastro‑intestinal, cardiovascular, pain management and other major therapeutic areas.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
+        <h3>Manufacturing capability</h3>
+        <p>An in‑house facility producing tablets, capsules, syrups, injections, ointments and more across dedicated production sections.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Contract manufacturing</h3>
+        <p>Flexible contract and third‑party manufacturing solutions for pharmaceutical partners in India and export markets.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v4H4z"/><path d="M4 10h16v10H4z"/><path d="M9 14h6"/></svg>
+        <h3>Regulatory focus</h3>
+        <p>Manufacturing operations are aligned with GMP requirements, with quality systems documented for regulatory review.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Long‑term partnerships</h3>
+        <p>Customer relationships built on transparency and reliability — from wholesalers and retailers to hospitals and institutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="section" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Product Portfolio</div>
+      <h2>Explore our pharmaceutical portfolio</h2>
+      <p>Products are organised by dosage form to help distributors, hospitals and partners find what they need quickly.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16"/><circle cx="8" cy="7" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16" cy="7" r="1"/></svg>
+        <h3>Tablets &amp; Capsules</h3>
+        <p>Generic and branded tablet and capsule formulations across therapeutic categories.</p>
+        <a href="#">Explore Products</a>
+      </div>
+      <div class="product-card">
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6M10 3v5l-5 10a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-10V3"/></svg>
+        <h3>Syrup</h3>
+        <p>Oral liquid formulations manufactured in dedicated liquid oral sections.</p>
+        <a href="#">Explore Products</a>
+      </div>
+      <div class="product-card">
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M9 8h6l1 4H8l1-4z"/><path d="M8 12h8l1 9H7l1-9z"/></svg>
+        <h3>Injections</h3>
+        <p>Powder for injection and liquid injection, β‑lactam and non‑β‑lactam, from dedicated parenteral sections.</p>
+        <a href="#">Explore Products</a>
+      </div>
+      <div class="product-card">
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Eye &amp; Ear Drops</h3>
+        <p>Ophthalmic and otic drop formulations for eye‑care and ear‑care requirements.</p>
+        <a href="#">Explore Products</a>
+      </div>
+      <div class="product-card">
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l6-14h4l6 14"/><path d="M8 14h8"/></svg>
+        <h3>Powder</h3>
+        <p>Powder formulations manufactured for oral and topical use.</p>
+        <a href="#">Explore Products</a>
+      </div>
+      <div class="product-card">
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 6 1-4.5 4 1 6-5.5-3-5.5 3 1-6L3 9l6-1 3-6z"/></svg>
+        <h3>Food Supplement</h3>
+        <p>Nutraceutical and food‑supplement products supporting general wellbeing.</p>
+        <a href="#">Explore Products</a>
+      </div>
+      <div class="product-card">
+        <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="3" width="8" height="6" rx="1"/><path d="M9 9v10a3 3 0 0 0 6 0V9"/></svg>
+        <h3>Ointment</h3>
+        <p>Topical external‑preparation ointments and creams from the dedicated ointment section.</p>
+        <a href="#">Explore Products</a>
+      </div>
+      <div class="product-card" style="background:var(--mist);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
+        <h3>Looking for a specific molecule?</h3>
+        <p>Search by brand name, composition or product code across the full portfolio.</p>
+        <a href="#" style="color:var(--navy);">Browse All Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MANUFACTURING CAPACITY ================= -->
+<section class="section mist" id="manufacturing">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Manufacturing Capability</div>
+      <h2>Production capacity built for scale</h2>
+      <p>Published production capacity, calculated per 8‑hour shift, across three shifts a day, at the Hajipur manufacturing facility.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-label">Liquid Oral Section</div>
+        <div class="cap-num">40,000</div>
+        <div class="cap-unit">Bottles / shift × 2 lines</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-label">Tablet Section</div>
+        <div class="cap-num">21 Lac</div>
+        <div class="cap-unit">Tablets / shift (21,00,000)</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-label">Capsule Section</div>
+        <div class="cap-num">4,25,000</div>
+        <div class="cap-unit">Capsules / shift</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-label">Dry Syrup Section</div>
+        <div class="cap-num">38,500</div>
+        <div class="cap-unit">Bottles / shift</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-label">Dry Injection Section</div>
+        <div class="cap-num">30,000</div>
+        <div class="cap-unit">Vials / shift</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-label">Liquid Injection Section</div>
+        <div class="cap-num">30,000</div>
+        <div class="cap-unit">Vials / shift</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-label">Ampoule Section</div>
+        <div class="cap-num">25,000</div>
+        <div class="cap-unit">Ampoules / shift</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-label">Ointment Section</div>
+        <div class="cap-num">21,000</div>
+        <div class="cap-unit">Tubes / shift</div>
+      </div>
+    </div>
+    <p class="cap-note">Figures represent published per‑shift capacity for each production section and are not directly comparable across dosage forms.</p>
+  </div>
+</section>
+
+<!-- ================= CONTRACT MANUFACTURING ================= -->
+<section class="section" id="contract">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Contract &amp; Third‑Party Manufacturing</div>
+      <h2>Your pharmaceutical manufacturing partner</h2>
+      <p>Fantasy Drugs undertakes contract and third‑party pharmaceutical manufacturing in India, from initial product requirement through to dispatch.</p>
+    </div>
+    <div class="process-rail">
+      <div class="process-step"><span class="step-no">1</span><h4>Product requirement</h4><p>Share the product, dosage form and quantity you need manufactured.</p></div>
+      <div class="process-step"><span class="step-no">2</span><h4>Technical discussion</h4><p>Discuss formulation, packaging and regulatory requirements with our team.</p></div>
+      <div class="process-step"><span class="step-no">3</span><h4>Formulation &amp; selection</h4><p>Finalise the product formulation and manufacturing specifications.</p></div>
+      <div class="process-step"><span class="step-no">4</span><h4>Manufacturing</h4><p>Production runs in our GMP‑certified facility in Hajipur, Bihar.</p></div>
+      <div class="process-step"><span class="step-no">5</span><h4>Quality control</h4><p>In‑process and finished‑product quality checks at every stage.</p></div>
+      <div class="process-step"><span class="step-no">6</span><h4>Packaging</h4><p>Primary and secondary packaging as per your specification.</p></div>
+      <div class="process-step"><span class="step-no">7</span><h4>Documentation</h4><p>Batch and compliance documentation prepared for handover.</p></div>
+      <div class="process-step"><span class="step-no">8</span><h4>Dispatch / export</h4><p>Finished goods dispatched domestically or prepared for export.</p></div>
+    </div>
+    <div style="margin-top:44px;">
+      <button class="btn btn-primary" id="openQuoteContract">Request a Manufacturing Consultation</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUALITY & COMPLIANCE ================= -->
+<section class="section mist" id="quality">
+  <div class="wrap quality-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:24px;">
+        <div class="kicker">Quality &amp; Compliance</div>
+        <h2>Quality is built into every stage</h2>
+      </div>
+      <ul class="quality-list">
+        <li><span class="q-dot"></span><div><h4>Quality driven manufacturing</h4><p>All products are manufactured to appropriate, consistent standards of quality, reliability and safety for their intended purpose.</p></div></li>
+        <li><span class="q-dot"></span><div><h4>GMP‑certified facility</h4><p>Manufacturing is carried out in a company‑owned, GMP‑certified unit in Hajipur, Bihar.</p></div></li>
+        <li><span class="q-dot"></span><div><h4>Customer‑focused quality systems</h4><p>Customer satisfaction is treated as a core contributor to overall business quality and reliability.</p></div></li>
+        <li><span class="q-dot"></span><div><h4>Documentation &amp; compliance</h4><p>Certification and compliance documents are maintained and made available for reference on request.</p></div></li>
+      </ul>
+    </div>
+    <div>
+      <div class="cert-card">
+        <div class="cert-meta">
+          <div class="cert-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div><h4>WHO‑GMP Certificate</h4><span>Issued 2025</span></div>
+        </div>
+        <div class="cert-links">
+          <a href="https://fantasydrugs.in/public/assets/images/WHO-GMP-Certificate-2025-New.pdf" target="_blank" rel="noopener">View Certificate</a>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-meta">
+          <div class="cert-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div><h4>Fantasy Drugs Certificate</h4><span>Company documentation</span></div>
+        </div>
+        <div class="cert-links">
+          <a href="https://fantasydrugs.in/public/assets/images/Fantasy-Drugs.pdf" target="_blank" rel="noopener">View Certificate</a>
+        </div>
+      </div>
+      <p class="cert-disclaimer">Certification information is presented for reference. Please verify current validity directly with the issuing authority or company documentation before relying on it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GLOBAL PRESENCE ================= -->
+<section class="section" id="global">
+  <div class="wrap global-grid">
+    <div class="global-map">
+      <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+        <rect width="500" height="300" fill="none"/>
+        <g stroke="#C7D3E0" stroke-width="1" fill="none">
+          <path d="M40 90 L140 60 L230 90 L260 70 L340 80 L420 60 L460 90 L440 140 L360 150 L300 200 L230 220 L150 210 L90 180 L50 140 Z"/>
+        </g>
+        <circle cx="330" cy="120" r="7" fill="#0E7C86"/>
+        <circle cx="330" cy="120" r="14" fill="#0E7C86" opacity="0.2"/>
+        <text x="345" y="124" fill="#0B2545" font-family="Inter, sans-serif" font-size="13" font-weight="600">India — Hajipur, Bihar</text>
+        <text x="345" y="142" fill="#4B5768" font-family="Inter, sans-serif" font-size="11">Manufacturing base</text>
+      </svg>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:10px;">
+        <div class="kicker">Global Presence</div>
+        <h2>From India to global healthcare markets</h2>
+        <p>Fantasy Drugs manufactures from its Hajipur facility and serves customers in India as well as abroad, spanning wholesalers, retailers, distributors, hospitals, nursing homes and institutions.</p>
+      </div>
+      <div class="global-facts">
+        <div class="g-item"><strong>Domestic distribution</strong><span>Wholesalers, retailers, hospitals, institutions across India</span></div>
+        <div class="g-item"><strong>Export &amp; trading</strong><span>Generic and branded medicines supplied to customers abroad</span></div>
+        <div class="g-item"><strong>Contract manufacturing</strong><span>Manufacturing services for partner companies</span></div>
+        <div class="g-item"><strong>Business enquiries</strong><span>Dedicated channel for international partnership requests</span></div>
+      </div>
+      <div style="margin-top:26px;">
+        <button class="btn btn-outline" id="openQuoteGlobal">Become a Global Partner</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BAND ================= -->
+<section class="cta-band">
+  <div class="wrap">
+    <div>
+      <h2>Ready to discuss your manufacturing requirement?</h2>
+      <p>Our business development team reviews every enquiry and responds with next steps.</p>
+    </div>
+    <button class="btn btn-primary" id="openQuoteCta">Request a Quote</button>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section mist" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Contact</div>
+      <h2>Let's build something that improves healthcare</h2>
+      <p>Reach the team closest to your requirement — manufacturing, corporate or business development.</p>
+    </div>
+    <div class="location-grid">
+      <div class="location-card">
+        <div class="loc-tag">Manufacturing Facility</div>
+        <h3>Hajipur, Bihar</h3>
+        <address>Plot No. C‑66 to 69, D‑33 to 36, Industrial Area, Hajipur, Bihar 844101, India</address>
+        <div class="loc-contacts">
+          <a href="tel:+919431020121">+91 94310 20121</a> · <a href="tel:+919934625167">+91 99346 25167</a>
+        </div>
+      </div>
+      <div class="location-card">
+        <div class="loc-tag">Office</div>
+        <h3>Patna, Bihar</h3>
+        <address>H.I.G. Plot No. 4H/32, Bahadurpur Housing Colony, Bhoothnath Road, Kankarbagh, Patna 800026, Bihar, India</address>
+        <div class="loc-contacts">
+          <a href="mailto:info@fantasydrugs.in">info@fantasydrugs.in</a>
+        </div>
+      </div>
+      <div class="location-card">
+        <div class="loc-tag">Corporate Office</div>
+        <h3>Mumbai, Maharashtra</h3>
+        <address>B‑602, Samajdeep CHS Ltd., Jamnadas Adukia Lane, Opp. Seasons Hotel, Kandivali (West), Mumbai 400067, Maharashtra, India</address>
+        <div class="loc-contacts">
+          <a href="tel:+917045707673">+91 70457 07673</a> · <a href="tel:+919152515555">+91 91525 15555</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;">
+      <button class="btn btn-primary" id="openQuoteContact">Send Business Enquiry</button>
+      <a class="btn btn-outline" href="tel:+917045707673">Call Us</a>
+      <a class="btn btn-outline" href="https://wa.me/917045707673" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="careers">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo">
+          <span class="logo-mark">FD</span>
+          <span class="logo-text"><strong style="color:#fff;">Fantasy Drugs</strong><span style="color:rgba(255,255,255,.6);">Pharmaceutical Manufacturing</span></span>
+        </div>
+        <p>Generic and branded pharmaceutical manufacturing, exporting and contract manufacturing, based in Hajipur, Bihar, India since 2013.</p>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#about">Leadership</a></li>
+          <li><a href="#quality">Quality Management</a></li>
+          <li><a href="#quality">Certifications</a></li>
+          <li><a href="#careers">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Products</h5>
+        <ul>
+          <li><a href="#products">Tablets &amp; Capsules</a></li>
+          <li><a href="#products">Syrup</a></li>
+          <li><a href="#products">Injections</a></li>
+          <li><a href="#products">Eye &amp; Ear Drops</a></li>
+          <li><a href="#products">Powder</a></li>
+          <li><a href="#products">Ointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Business</h5>
+        <ul>
+          <li><a href="#contract">Contract Manufacturing</a></li>
+          <li><a href="#contract">Third‑Party Manufacturing</a></li>
+          <li><a href="#global">Exports</a></li>
+          <li><a href="#" id="openQuoteFooter">Request a Quote</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>+91 70457 07673</li>
+          <li>info@fantasydrugs.in</li>
+          <li>Mumbai Corporate Office</li>
+          <li>Hajipur Manufacturing Facility</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fantasy Drugs Pvt. Ltd. All rights reserved.</span>
+      <div class="legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
   </div>
 </footer>
 
-<script src="js/data.js"></script>
-<script src="js/common.js"></script>
-<script src="js/main.js"></script>
+<!-- ================= FLOATING ACTIONS ================= -->
+<div class="floating">
+  <a class="fab whatsapp" href="https://wa.me/917045707673" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A10.6 10.6 0 0 0 12 0 10.6 10.6 0 0 0 3.5 3.5 10.5 10.5 0 0 0 0 12a10.4 10.4 0 0 0 1.4 5.3L0 24l6.9-1.4A10.6 10.6 0 0 0 12 24a10.6 10.6 0 0 0 8.5-3.5A10.6 10.6 0 0 0 24 12a10.6 10.6 0 0 0-3.5-8.5zM12 21.7a9 9 0 0 1-4.6-1.3l-.3-.2-3.7.8.8-3.6-.2-.3A9 9 0 1 1 21 12a9 9 0 0 1-9 9.7z"/></svg>
+  </a>
+  <button class="fab call" id="openQuoteFab" aria-label="Request a quote">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+  </button>
+</div>
+
+<!-- ================= MOBILE BOTTOM BAR ================= -->
+<div class="mobile-bottom-bar">
+  <a href="https://wa.me/917045707673" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    WhatsApp
+  </a>
+  <a href="tel:+917045707673">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call
+  </a>
+  <button class="primary" id="openQuoteMobile">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    Quote
+  </button>
+</div>
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="modal-overlay" id="mobileMenuOverlay">
+  <div class="modal" style="max-width:320px;margin-right:auto;margin-left:0;border-radius:0;">
+    <div class="modal-head">
+      <h3 style="font-size:17px;">Menu</h3>
+      <button class="modal-close" id="closeMobileMenu">&times;</button>
+    </div>
+    <ul style="display:flex;flex-direction:column;gap:4px;margin-top:10px;">
+      <li><a href="#about" class="btn-ghost" style="display:block;padding:12px 0;border-bottom:1px solid var(--line);">About</a></li>
+      <li><a href="#manufacturing" class="btn-ghost" style="display:block;padding:12px 0;border-bottom:1px solid var(--line);">Manufacturing</a></li>
+      <li><a href="#products" class="btn-ghost" style="display:block;padding:12px 0;border-bottom:1px solid var(--line);">Products</a></li>
+      <li><a href="#quality" class="btn-ghost" style="display:block;padding:12px 0;border-bottom:1px solid var(--line);">Quality &amp; Compliance</a></li>
+      <li><a href="#global" class="btn-ghost" style="display:block;padding:12px 0;border-bottom:1px solid var(--line);">Global Presence</a></li>
+      <li><a href="#careers" class="btn-ghost" style="display:block;padding:12px 0;border-bottom:1px solid var(--line);">Careers</a></li>
+      <li><a href="#contact" class="btn-ghost" style="display:block;padding:12px 0;">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= QUOTE MODAL ================= -->
+<div class="modal-overlay" id="quoteModal">
+  <div class="modal">
+    <div id="quoteFormWrap">
+      <div class="modal-head">
+        <div>
+          <h3>Request a Manufacturing Quote</h3>
+          <p class="sub">Our business development team reviews every enquiry and responds with next steps.</p>
+        </div>
+        <button class="modal-close" id="closeQuoteModal">&times;</button>
+      </div>
+      <form id="quoteForm">
+        <div class="form-row">
+          <div class="form-field"><label>Full name</label><input type="text" required></div>
+          <div class="form-field"><label>Company</label><input type="text" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Country</label><input type="text" required></div>
+          <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full"><label>Email</label><input type="email" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Dosage form</label>
+            <select><option>Tablets &amp; Capsules</option><option>Syrup</option><option>Injections</option><option>Eye &amp; Ear Drops</option><option>Powder</option><option>Food Supplement</option><option>Ointment</option></select>
+          </div>
+          <div class="form-field"><label>Expected quantity</label><input type="text" placeholder="e.g. monthly volume"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full"><label>Message</label><textarea rows="3" placeholder="Tell us about your requirement"></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Enquiry</button>
+      </form>
+    </div>
+    <div class="form-success" id="formSuccess">
+      <div class="check"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h3>Thank you</h3>
+      <p class="sub">Our business development team will review your enquiry and contact you shortly.</p>
+      <button class="btn btn-outline" id="closeSuccessModal" style="width:100%;justify-content:center;">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Sticky header shadow
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('is-stuck', window.scrollY > 8);
+  });
+
+  // Mobile menu
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  hamburgerBtn.addEventListener('click', () => mobileMenuOverlay.classList.add('open'));
+  document.getElementById('closeMobileMenu').addEventListener('click', () => mobileMenuOverlay.classList.remove('open'));
+  mobileMenuOverlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenuOverlay.classList.remove('open')));
+
+  // Quote modal
+  const quoteModal = document.getElementById('quoteModal');
+  const quoteFormWrap = document.getElementById('quoteFormWrap');
+  const formSuccess = document.getElementById('formSuccess');
+  const openers = ['openQuoteTop','openQuoteHeader','openQuoteHero','openQuoteContract','openQuoteGlobal','openQuoteCta','openQuoteContact','openQuoteFooter','openQuoteFab','openQuoteMobile'];
+  openers.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', (e) => {
+      e.preventDefault();
+      quoteFormWrap.style.display = 'block';
+      formSuccess.style.display = 'none';
+      quoteModal.classList.add('open');
+    });
+  });
+  document.getElementById('closeQuoteModal').addEventListener('click', () => quoteModal.classList.remove('open'));
+  document.getElementById('closeSuccessModal').addEventListener('click', () => quoteModal.classList.remove('open'));
+  quoteModal.addEventListener('click', (e) => { if (e.target === quoteModal) quoteModal.classList.remove('open'); });
+
+  document.getElementById('quoteForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    quoteFormWrap.style.display = 'none';
+    formSuccess.style.display = 'block';
+  });
+</script>
+
 </body>
 </html>
