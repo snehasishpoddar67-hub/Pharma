@@ -22,7 +22,7 @@
     --wrap:1240px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
   body{
     margin:0;
     font-family:'Inter',sans-serif;
@@ -30,6 +30,8 @@
     background:var(--paper);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    max-width:100%;
   }
   h1,h2,h3,h4{
     font-family:'Manrope',sans-serif;
@@ -337,11 +339,12 @@
 
     /* Hero: rebuilt for phone rather than shrunk — real content order, no desktop illustration */
     .hero .wrap{padding-top:28px;padding-bottom:0;}
+    .hero-copy{min-width:0;} /* stops a long button label's min-content width from stretching the whole grid track */
     .hero-eyebrow{font-size:12px;margin-bottom:12px;}
     .hero h1{font-size:26px;max-width:none;margin-bottom:12px;letter-spacing:-0.015em;}
     .hero p.lead{font-size:15px;max-width:none;margin-bottom:20px;}
-    .hero-ctas{flex-direction:column;gap:10px;margin-bottom:24px;}
-    .hero-ctas .btn{width:100%;justify-content:center;padding:13px 22px;}
+    .hero-ctas{flex-direction:column;gap:10px;margin-bottom:24px;min-width:0;}
+    .hero-ctas .btn{width:100%;justify-content:center;padding:13px 18px;white-space:normal;text-align:center;min-width:0;}
     /* the line-art illustration is a desktop asset — on phone it just reads as decoration competing
        with the message, so it's replaced by a slim manufacturing-facts strip instead of shown smaller */
     .hero-art{display:none;}
@@ -382,7 +385,7 @@
 
     .cert-card{flex-direction:column;align-items:flex-start;gap:14px;}
     .cert-card .cert-links{width:100%;}
-    .cert-card .cert-links a{display:block;padding:9px 0;text-align:center;border:1px solid var(--line);border-radius:2px;}
+    .cert-card .cert-links a{display:block;padding:9px 0;text-align:center;border:1px solid var(--line);border-radius:2px;white-space:normal;}
 
     .global-facts{grid-template-columns:1fr;}
 
