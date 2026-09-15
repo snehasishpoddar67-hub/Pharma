@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wavelength — Signal on technology, tutorials, reviews & business</title>
+<meta name="description" content="Wavelength is a multi-topic blog covering technology, tutorials, reviews, and business — organized by channel." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="dial-mark" aria-hidden="true"></span>
+      Wavelength
+      <small>FM BLOG</small>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Primary"></nav>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <p class="hero-eyebrow">On air now</p>
+    <h1>Tune in to what's <em>actually</em> worth reading.</h1>
+    <p class="lede">Wavelength covers technology, tutorials, reviews, and business — four channels, one dial. Pick a frequency below or scroll through everything.</p>
+
+    <div class="dial" role="navigation" aria-label="Categories">
+      <div class="dial-track" id="dial-track"></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div id="featured-slot"></div>
+    <div id="channels"></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="footer-year"></span> Wavelength. Built with plain HTML, CSS &amp; JS — hosted on GitHub Pages.</p>
+    <nav class="footer-cats" id="footer-cats" aria-label="Categories"></nav>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
