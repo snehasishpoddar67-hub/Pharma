@@ -142,6 +142,7 @@
 
   .hero-art{position:relative;}
   .hero-art svg{width:100%;height:auto;}
+  .hero-facts{display:none;}
 
   /* ---------- Snapshot ---------- */
   .snapshot{background:var(--navy);color:#fff;}
@@ -323,27 +324,43 @@
     .section-head h2{font-size:25px;}
     .section-head p{font-size:14.5px;}
 
-    /* Header: bottom bar already carries call/WhatsApp/quote, so declutter the top */
+    /* Utility bar duplicates what the fixed bottom bar already does on phone — drop it entirely */
+    .utility-bar{display:none;}
+
+    /* Header: one slim, thumb-friendly row — logo + menu only */
+    .header-row{padding:10px 0;}
     .header-actions .icon-btn,.header-actions .btn-primary{display:none;}
-    .logo-mark{width:36px;height:36px;font-size:14px;}
-    .logo-text strong{font-size:15px;}
-    .logo-text span{font-size:10px;}
+    .logo-mark{width:34px;height:34px;font-size:13px;border-radius:5px;}
+    .logo-text strong{font-size:14.5px;}
+    .logo-text span{display:none;} /* the tagline earns its place on desktop, not in a 52px-tall bar */
+    .hamburger{width:36px;height:36px;}
 
-    /* Hero: shorter headline, no oversized display type, art scaled down and de-emphasised */
-    .hero .wrap{padding-top:28px;padding-bottom:40px;}
-    .hero-eyebrow{font-size:12.5px;}
-    .hero h1{font-size:27px;max-width:none;margin-bottom:14px;}
-    .hero p.lead{font-size:15px;margin-bottom:22px;}
-    .hero-ctas{flex-direction:column;gap:10px;}
-    .hero-ctas .btn{width:100%;justify-content:center;}
-    .hero-art{max-width:220px;margin-top:28px;opacity:.9;}
+    /* Hero: rebuilt for phone rather than shrunk — real content order, no desktop illustration */
+    .hero .wrap{padding-top:28px;padding-bottom:0;}
+    .hero-eyebrow{font-size:12px;margin-bottom:12px;}
+    .hero h1{font-size:26px;max-width:none;margin-bottom:12px;letter-spacing:-0.015em;}
+    .hero p.lead{font-size:15px;max-width:none;margin-bottom:20px;}
+    .hero-ctas{flex-direction:column;gap:10px;margin-bottom:24px;}
+    .hero-ctas .btn{width:100%;justify-content:center;padding:13px 22px;}
+    /* the line-art illustration is a desktop asset — on phone it just reads as decoration competing
+       with the message, so it's replaced by a slim manufacturing-facts strip instead of shown smaller */
+    .hero-art{display:none;}
+    .hero-facts{display:flex;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -20px 22px;}
+    .hero-facts .hf-item{flex:1;text-align:center;padding:14px 6px;border-left:1px solid var(--line);}
+    .hero-facts .hf-item:first-child{border-left:none;}
+    .hero-facts .hf-num{display:block;font-family:'Manrope',sans-serif;font-weight:800;color:var(--navy);font-size:15px;}
+    .hero-facts .hf-label{display:block;font-size:10.5px;color:var(--ink-soft);margin-top:2px;}
 
-    /* Any horizontally-cramped grid becomes a native swipeable row instead of squeezed 2-up cards */
-    .snapshot .wrap{display:flex;overflow-x:auto;gap:12px;padding:22px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
-    .snapshot .item{flex:0 0 68%;border-left:none;padding:0;scroll-snap-align:start;}
+    /* Trust strip: swipeable chips with a peek of the next one so it reads as scrollable, not cut off */
+    .trust-strip{display:flex;overflow-x:auto;gap:10px;flex-wrap:nowrap;max-width:none;border-top:none;padding:0 20px 4px;margin:0 -20px;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;}
+    .trust-strip li{flex:0 0 auto;max-width:none;white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:20px;padding:9px 14px;scroll-snap-align:start;}
+    .trust-strip svg{margin-top:0;}
 
-    .trust-strip{display:flex;overflow-x:auto;gap:10px;flex-wrap:nowrap;max-width:none;border-top:none;padding-top:0;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;}
-    .trust-strip li{flex:0 0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:9px 14px;scroll-snap-align:start;}
+    /* Stat row: compact cards with a visible peek of the next card, not a 2x2 shrink */
+    .snapshot .wrap{display:flex;overflow-x:auto;gap:10px;padding:20px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+    .snapshot .item{flex:0 0 62%;border-left:none;padding:14px 16px;background:rgba(255,255,255,.06);border-radius:4px;scroll-snap-align:start;}
+    .snapshot .num{font-size:22px;}
+    .snapshot .label{font-size:12px;}
 
     .feature-grid{display:flex;overflow-x:auto;gap:12px;border:none;background:none;padding-bottom:6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
     .feature-card{flex:0 0 78%;border:1px solid var(--line);scroll-snap-align:start;padding:24px 22px;}
@@ -501,6 +518,13 @@
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Contract &amp; third‑party manufacturing</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Serving partners in India and abroad</li>
       </ul>
+
+      <!-- Phone-only: replaces the desktop illustration with real facts, not a shrunk image -->
+      <div class="hero-facts">
+        <div class="hf-item"><span class="hf-num">2013</span><span class="hf-label">Established</span></div>
+        <div class="hf-item"><span class="hf-num">1.5 acres</span><span class="hf-label">Hajipur plant</span></div>
+        <div class="hf-item"><span class="hf-num">7</span><span class="hf-label">Dosage forms</span></div>
+      </div>
     </div>
 
     <div class="hero-art">
